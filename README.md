@@ -39,20 +39,20 @@ The following configurations are supported from [OpenAPI Style Validator](https:
 
 | Key | Type | Description |
 | ------- | ---- | ----------- |
-| `openApiStyleValidateInfoLicense` | SettingKey[Option[Boolean]] | Ensures that there is a license section in the info section. |
-| `openApiStyleValidateInfoDescription` | SettingKey[Option[Boolean]] | Ensures that there is a description attribute in the info section. |
-| `openApiStyleValidateInfoContact` | SettingKey[Option[Boolean]] | Ensures that there is a contact section in the info section. |
-| `openApiStyleValidateOperationId` | SettingKey[Option[Boolean]] | Ensures that there is an operation id for each operation. |
-| `openApiStyleValidateOperationDescription` | SettingKey[Option[Boolean]] | Ensures that there is a description for each operation. |
-| `openApiStyleValidateOperationTag` | SettingKey[Option[Boolean]] | Ensures that there is a tag for each operation. |
-| `openApiStyleValidateOperationSummary` | SettingKey[Option[Boolean]] | Ensures that there is a summary for each operation. |
-| `openApiStyleValidateModelPropertiesExample` | SettingKey[Option[Boolean]] | Ensures that the properties of the Schemas have an example value defined. |
-| `openApiStyleValidateNaming` | SettingKey[Option[Boolean]] | Ensures the names follow a given naming convention. |
-| `openApiStyleIgnoreHeaderXNaming` | SettingKey[Option[Boolean]] | Exclude from validation header parameters starting with x-. |
-| `openApiStylePathNamingConvention` | SettingKey[Option[NamingConvention]] | Naming convention for paths. |
-| `openApiStyleParameterNamingConvention` | SettingKey[Option[NamingConvention]] | Naming convention for parameters. |
-| `openApiStyleHeaderNamingConvention` | SettingKey[Option[NamingConvention]] | Naming convention for headers. |
-| `openApiStylePropertyNamingConvention` | SettingKey[Option[NamingConvention]] | Naming convention for properties. |
+| `openApiStyleValidateInfoLicense` | `SettingKey[Option[Boolean]]` | Ensures that there is a license section in the info section. |
+| `openApiStyleValidateInfoDescription` | `SettingKey[Option[Boolean]]` | Ensures that there is a description attribute in the info section. |
+| `openApiStyleValidateInfoContact` | `SettingKey[Option[Boolean]]` | Ensures that there is a contact section in the info section. |
+| `openApiStyleValidateOperationId` | `SettingKey[Option[Boolean]]` | Ensures that there is an operation id for each operation. |
+| `openApiStyleValidateOperationDescription` | `SettingKey[Option[Boolean]]` | Ensures that there is a description for each operation. |
+| `openApiStyleValidateOperationTag` | `SettingKey[Option[Boolean]]` | Ensures that there is a tag for each operation. |
+| `openApiStyleValidateOperationSummary` | `SettingKey[Option[Boolean]]` | Ensures that there is a summary for each operation. |
+| `openApiStyleValidateModelPropertiesExample` | `SettingKey[Option[Boolean]]` | Ensures that the properties of the Schemas have an example value defined. |
+| `openApiStyleValidateNaming` | `SettingKey[Option[Boolean]]` | Ensures the names follow a given naming convention. |
+| `openApiStyleIgnoreHeaderXNaming` | `SettingKey[Option[Boolean]]` | Exclude from validation header parameters starting with x-. |
+| `openApiStylePathNamingConvention` | `SettingKey[Option[NamingConvention]]` | Naming convention for paths. |
+| `openApiStyleParameterNamingConvention` | `SettingKey[Option[NamingConvention]]` | Naming convention for parameters. |
+| `openApiStyleHeaderNamingConvention` | `SettingKey[Option[NamingConvention]]` | Naming convention for headers. |
+| `openApiStylePropertyNamingConvention` | `SettingKey[Option[NamingConvention]]` | Naming convention for properties. |
 
 # Examples
 
