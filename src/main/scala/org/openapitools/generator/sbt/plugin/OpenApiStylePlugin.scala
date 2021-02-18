@@ -9,6 +9,7 @@ import org.openapitools.openapistylevalidator.styleerror.StyleError
 import sbt._
 import sbt.plugins.JvmPlugin
 
+import java.util.function.Consumer
 import scala.collection.mutable.ListBuffer
 
 object OpenApiStylePlugin
@@ -37,7 +38,9 @@ object OpenApiStylePlugin
       val validator = new OpenApiSpecStyleValidator(openApi)
 
       val errors = ListBuffer.empty[String]
-      validator.validate(parameters).forEach((t: StyleError) => errors += t.toString)
+      validator.validate(parameters).forEach(new Consumer[StyleError] {
+        override def accept(error: StyleError): Unit = errors += error.toString
+      })
       errors.toList
     },
     openApiStyleValidate := {
