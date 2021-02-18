@@ -17,20 +17,42 @@ addSbtPlugin("org.openapitools.openapistylevalidator" % "sbt-openapi-style-valid
 Update your `build.sbt`:
 ```sbt
 enablePlugins(OpenApiStylePlugin)
-openApiStyleFile := file("openapi.yaml")
+openApiStyleSpec := file("openapi.yaml")
 ```
 
 Invoke one of the provided tasks:
 ```
 > openApiStyleValidate
+> openApiStyleValidationResult
 ```
 
 # sbt keys
 
 | Key | Type | Description |
 | ------- | ---- | ----------- |
-| `openApiStyleFile` | `TaskKey[sbt.File]` | OpenAPI specification file. |
-| `openApiStyleValidate` | `TaskKey[Unit]` | Validates styles for the OpenAPI specification file. |
+| `openApiStyleSpec` | `TaskKey[File]` | OpenAPI specification file. |
+| `openApiStyleValidate` | `TaskKey[Unit]` | Validates OpenAPI specification file: success or failure. |
+| `openApiStyleValidationResult` | `TaskKey[Seq[String]]` | Validates OpenAPI specification file: evaluates to a list of detailed error messages. |
+| `openApiStyleValidatorParameters` | `SettingKey[ValidatorParameters]` | OpenAPI Style Validator parameters. |
+
+The following configurations are supported from [OpenAPI Style Validator](https://github.com/OpenAPITools/openapi-style-validator):
+
+| Key | Type | Description |
+| ------- | ---- | ----------- |
+| `openApiStyleValidateInfoLicense` | SettingKey[Option[Boolean]] | Ensures that there is a license section in the info section. |
+| `openApiStyleValidateInfoDescription` | SettingKey[Option[Boolean]] | Ensures that there is a description attribute in the info section. |
+| `openApiStyleValidateInfoContact` | SettingKey[Option[Boolean]] | Ensures that there is a contact section in the info section. |
+| `openApiStyleValidateOperationId` | SettingKey[Option[Boolean]] | Ensures that there is an operation id for each operation. |
+| `openApiStyleValidateOperationDescription` | SettingKey[Option[Boolean]] | Ensures that there is a description for each operation. |
+| `openApiStyleValidateOperationTag` | SettingKey[Option[Boolean]] | Ensures that there is a tag for each operation. |
+| `openApiStyleValidateOperationSummary` | SettingKey[Option[Boolean]] | Ensures that there is a summary for each operation. |
+| `openApiStyleValidateModelPropertiesExample` | SettingKey[Option[Boolean]] | Ensures that the properties of the Schemas have an example value defined. |
+| `openApiStyleValidateNaming` | SettingKey[Option[Boolean]] | Ensures the names follow a given naming convention. |
+| `openApiStyleIgnoreHeaderXNaming` | SettingKey[Option[Boolean]] | Exclude from validation header parameters starting with x-. |
+| `openApiStylePathNamingConvention` | SettingKey[Option[NamingConvention]] | Naming convention for paths. |
+| `openApiStyleParameterNamingConvention` | SettingKey[Option[NamingConvention]] | Naming convention for parameters. |
+| `openApiStyleHeaderNamingConvention` | SettingKey[Option[NamingConvention]] | Naming convention for headers. |
+| `openApiStylePropertyNamingConvention` | SettingKey[Option[NamingConvention]] | Naming convention for properties. |
 
 # Examples
 

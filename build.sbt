@@ -25,7 +25,11 @@ enablePlugins(SbtPlugin)
 sbtPlugin := true
 crossSbtVersions := List("0.13.18", "1.4.6")
 
-libraryDependencies += "org.openapitools.openapistylevalidator" % "openapi-style-validator-lib" % "1.5"
+libraryDependencies ++= Seq(
+  "org.openapitools.openapistylevalidator" % "openapi-style-validator-lib" % "1.5",
+  "io.swagger.parser.v3" % "swagger-parser" % "2.0.24",
+  "org.openapitools.empoa" % "empoa-swagger-core" % "2.0.0"
+)
 
 publishMavenStyle := false
 

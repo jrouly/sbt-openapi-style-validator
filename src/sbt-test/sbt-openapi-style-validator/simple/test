@@ -1,0 +1,8 @@
+> reload
+> clean
+> compile
+
+-> openApiStyleValidate
+
+> problematic/check
+> ok/check
