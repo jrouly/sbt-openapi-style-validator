@@ -11,6 +11,7 @@ An sbt plugin to support the [OpenAPI Style Validator](https://github.com/OpenAP
 Add to your `project/plugins.sbt`:
 
 ```sbt
+resolvers += Resolver.bintrayIvyRepo("jrouly", "sbt-plugins")
 addSbtPlugin("org.openapitools.openapistylevalidator" % "sbt-openapi-style-validator" % "version")
 ```
 
