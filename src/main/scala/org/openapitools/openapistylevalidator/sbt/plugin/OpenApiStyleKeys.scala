@@ -1,4 +1,4 @@
-package org.openapitools.generator.sbt.plugin
+package org.openapitools.openapistylevalidator.sbt.plugin
 
 import org.openapitools.openapistylevalidator.ValidatorParameters
 import org.openapitools.openapistylevalidator.ValidatorParameters.NamingConvention

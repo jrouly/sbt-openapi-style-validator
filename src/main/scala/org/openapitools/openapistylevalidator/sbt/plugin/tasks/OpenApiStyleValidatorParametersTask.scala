@@ -1,7 +1,7 @@
-package org.openapitools.generator.sbt.plugin.tasks
+package org.openapitools.openapistylevalidator.sbt.plugin.tasks
 
-import org.openapitools.generator.sbt.plugin.OpenApiStyleKeys
 import org.openapitools.openapistylevalidator.ValidatorParameters
+import org.openapitools.openapistylevalidator.sbt.plugin.OpenApiStyleKeys
 import sbt._
 
 trait OpenApiStyleValidatorParametersTask extends OpenApiStyleKeys {

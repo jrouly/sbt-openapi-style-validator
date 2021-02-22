@@ -1,10 +1,10 @@
-package org.openapitools.generator.sbt.plugin
+package org.openapitools.openapistylevalidator.sbt.plugin
 
 import io.swagger.v3.parser.OpenAPIV3Parser
 import org.openapitools.empoa.swagger.core.internal.SwAdapter
-import org.openapitools.generator.sbt.plugin.tasks.OpenApiStyleValidatorParametersTask
 import org.openapitools.openapistylevalidator.OpenApiSpecStyleValidator
 import org.openapitools.openapistylevalidator.ValidatorParameters.NamingConvention
+import org.openapitools.openapistylevalidator.sbt.plugin.tasks.OpenApiStyleValidatorParametersTask
 import org.openapitools.openapistylevalidator.styleerror.StyleError
 import sbt._
 import sbt.plugins.JvmPlugin
