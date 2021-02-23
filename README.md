@@ -27,19 +27,51 @@ Invoke one of the provided tasks:
 > openApiStyleValidationResult
 ```
 
-# sbt keys
+## Configuration
+
+You may specify [openapi-style-validator](https://github.com/OpenAPITools/openapi-style-validator) settings either in a configuration file or directly in the sbt build definition using the provided keys.
+
+### Using a configuration file
+
+Supported formats include Java properties, [HOCON](https://github.com/lightbend/config/blob/master/HOCON.md) and JSON.
+
+Specify the config file in `build.sbt`:
+```sbt
+openApiStyleConfig := Some(file("openapi-style-validator.conf"))
+```
+
+Specify configurations in the config file:
+```hocon
+validateNaming = true
+pathNamingConvention = UnderscoreCase
+// etc.
+```
+
+Keys are the same as in [openapi-style-validator](https://github.com/OpenAPITools/openapi-style-validator).
+
+### Directly in sbt
+
+You may also specify configuration settings directly in `build.sbt` via the provided keys:
+```sbt
+openApiStyleValidateNaming := Some(true)
+openApiStylePathNamingConvention := Some(NamingConvention.UnderscoreCase)
+// etc.
+```
+
+## sbt keys
 
 | Key | Type | Description |
-| ------- | ---- | ----------- |
+| --- | ---- | ----------- |
+| `openApiStyleConfig` | `SettingKey[Option[File]]` | OpenAPI Style Validator configuration file. Defaults to `None`. |
 | `openApiStyleSpec` | `TaskKey[File]` | OpenAPI specification file. |
 | `openApiStyleValidate` | `TaskKey[Unit]` | Validates OpenAPI specification file: success or failure. |
 | `openApiStyleValidationResult` | `TaskKey[Seq[String]]` | Validates OpenAPI specification file: evaluates to a list of detailed error messages. |
-| `openApiStyleValidatorParameters` | `SettingKey[ValidatorParameters]` | OpenAPI Style Validator parameters. |
+| `openApiStyleValidatorParameters` | `SettingKey[ValidatorParameters]` | OpenAPI Style Validator parameters, typically set using configuration keys or a configuration file. |
 
-The following configurations are supported from [OpenAPI Style Validator](https://github.com/OpenAPITools/openapi-style-validator):
+The following configuration keys are supported:
 
 | Key | Type | Description |
-| ------- | ---- | ----------- |
+| --- | ---- | ----------- |
 | `openApiStyleValidateInfoLicense` | `SettingKey[Option[Boolean]]` | Ensures that there is a license section in the info section. |
 | `openApiStyleValidateInfoDescription` | `SettingKey[Option[Boolean]]` | Ensures that there is a description attribute in the info section. |
 | `openApiStyleValidateInfoContact` | `SettingKey[Option[Boolean]]` | Ensures that there is a contact section in the info section. |
@@ -49,7 +81,7 @@ The following configurations are supported from [OpenAPI Style Validator](https:
 | `openApiStyleValidateOperationSummary` | `SettingKey[Option[Boolean]]` | Ensures that there is a summary for each operation. |
 | `openApiStyleValidateModelPropertiesExample` | `SettingKey[Option[Boolean]]` | Ensures that the properties of the Schemas have an example value defined. |
 | `openApiStyleValidateNaming` | `SettingKey[Option[Boolean]]` | Ensures the names follow a given naming convention. |
-| `openApiStyleIgnoreHeaderXNaming` | `SettingKey[Option[Boolean]]` | Exclude from validation header parameters starting with x-. |
+| `openApiStyleIgnoreHeaderXNaming` | `SettingKey[Option[Boolean]]` | Exclude from validation header parameters starting with `x-`. |
 | `openApiStylePathNamingConvention` | `SettingKey[Option[NamingConvention]]` | Naming convention for paths. |
 | `openApiStyleParameterNamingConvention` | `SettingKey[Option[NamingConvention]]` | Naming convention for parameters. |
 | `openApiStyleHeaderNamingConvention` | `SettingKey[Option[NamingConvention]]` | Naming convention for headers. |

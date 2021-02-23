@@ -28,7 +28,8 @@ crossSbtVersions := List("0.13.18", "1.4.6")
 libraryDependencies ++= Seq(
   "org.openapitools.openapistylevalidator" % "openapi-style-validator-lib" % "1.5",
   "io.swagger.parser.v3" % "swagger-parser" % "2.0.24",
-  "org.openapitools.empoa" % "empoa-swagger-core" % "2.0.0"
+  "org.openapitools.empoa" % "empoa-swagger-core" % "2.0.0",
+  "com.typesafe" % "config" % "1.4.1"
 )
 
 publishMavenStyle := false
