@@ -4,5 +4,6 @@
 
 -> openApiStyleValidate
 
+> config/check
 > problematic/check
 > ok/check

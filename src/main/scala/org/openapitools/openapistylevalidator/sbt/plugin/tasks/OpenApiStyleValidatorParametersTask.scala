@@ -1,7 +1,10 @@
 package org.openapitools.openapistylevalidator.sbt.plugin.tasks
 
+import com.typesafe.config.ConfigFactory
 import org.openapitools.openapistylevalidator.ValidatorParameters
+import org.openapitools.openapistylevalidator.ValidatorParameters.NamingConvention
 import org.openapitools.openapistylevalidator.sbt.plugin.OpenApiStyleKeys
+import org.openapitools.openapistylevalidator.sbt.plugin.config.ConfigExtension._
 import sbt._
 
 trait OpenApiStyleValidatorParametersTask extends OpenApiStyleKeys {
@@ -9,61 +12,89 @@ trait OpenApiStyleValidatorParametersTask extends OpenApiStyleKeys {
   def openApiStyleValidatorParametersTask(): Def.Initialize[ValidatorParameters] = Def.setting {
     val parameters = new ValidatorParameters()
 
-    openApiStyleValidateInfoLicense.value.foreach { setting =>
-      parameters.setValidateInfoLicense(setting)
+    openApiStyleConfig.value.foreach { file =>
+      val config = ConfigFactory.parseFile(file)
+
+      config
+        .getOptionalBoolean("validateInfoLicense")
+        .foreach(parameters.setValidateInfoLicense)
+
+      config
+        .getOptionalBoolean("validateInfoDescription")
+        .foreach(parameters.setValidateInfoDescription)
+
+      config
+        .getOptionalBoolean("validateInfoContact")
+        .foreach(parameters.setValidateInfoContact)
+
+      config
+        .getOptionalBoolean("validateOperationId")
+        .foreach(parameters.setValidateOperationOperationId)
+
+      config
+        .getOptionalBoolean("validateOperationDescription")
+        .foreach(parameters.setValidateOperationDescription)
+
+      config
+        .getOptionalBoolean("validateOperationTag")
+        .foreach(parameters.setValidateOperationTag)
+
+      config
+        .getOptionalBoolean("validateOperationSummary")
+        .foreach(parameters.setValidateOperationSummary)
+
+      config
+        .getOptionalBoolean("validateModelPropertiesExample")
+        .foreach(parameters.setValidateModelPropertiesExample)
+
+      config
+        .getOptionalBoolean("validateNaming")
+        .foreach(parameters.setValidateNaming)
+
+      config
+        .getOptionalBoolean("ignoreHeaderXNaming")
+        .foreach(parameters.setIgnoreHeaderXNaming)
+
+      config
+        .getOptionalString("pathNamingConvention")
+        .map(NamingConvention.valueOf)
+        .foreach(parameters.setPathNamingConvention)
+
+      config
+        .getOptionalString("parameterNamingConvention")
+        .map(NamingConvention.valueOf)
+        .foreach(parameters.setParameterNamingConvention)
+
+      config
+        .getOptionalString("headerNamingConvention")
+        .map(NamingConvention.valueOf)
+        .foreach(parameters.setHeaderNamingConvention)
+
+      config
+        .getOptionalString("propertyNamingConvention")
+        .map(NamingConvention.valueOf)
+        .foreach(parameters.setPropertyNamingConvention)
     }
 
-    openApiStyleValidateInfoDescription.value.foreach { setting =>
-      parameters.setValidateInfoDescription(setting)
-    }
+    openApiStyleValidateInfoLicense.value.foreach(parameters.setValidateInfoLicense)
+    openApiStyleValidateInfoDescription.value.foreach(parameters.setValidateInfoDescription)
+    openApiStyleValidateInfoContact.value.foreach(parameters.setValidateInfoContact)
 
-    openApiStyleValidateInfoContact.value.foreach { setting =>
-      parameters.setValidateInfoContact(setting)
-    }
+    openApiStyleValidateOperationId.value.foreach(parameters.setValidateOperationOperationId)
+    openApiStyleValidateOperationDescription.value.foreach(parameters.setValidateOperationDescription)
+    openApiStyleValidateOperationTag.value.foreach(parameters.setValidateOperationTag)
+    openApiStyleValidateOperationSummary.value.foreach(parameters.setValidateOperationSummary)
 
-    openApiStyleValidateOperationId.value.foreach { setting =>
-      parameters.setValidateOperationOperationId(setting)
-    }
+    openApiStyleValidateModelPropertiesExample.value.foreach(parameters.setValidateModelPropertiesExample)
 
-    openApiStyleValidateOperationDescription.value.foreach { setting =>
-      parameters.setValidateOperationDescription(setting)
-    }
+    openApiStyleValidateNaming.value.foreach(parameters.setValidateNaming)
 
-    openApiStyleValidateOperationTag.value.foreach { setting =>
-      parameters.setValidateOperationTag(setting)
-    }
+    openApiStyleIgnoreHeaderXNaming.value.foreach(parameters.setIgnoreHeaderXNaming)
 
-    openApiStyleValidateOperationSummary.value.foreach { setting =>
-      parameters.setValidateOperationSummary(setting)
-    }
-
-    openApiStyleValidateModelPropertiesExample.value.foreach { setting =>
-      parameters.setValidateModelPropertiesExample(setting)
-    }
-
-    openApiStyleValidateNaming.value.foreach { setting =>
-      parameters.setValidateNaming(setting)
-    }
-
-    openApiStyleIgnoreHeaderXNaming.value.foreach { setting =>
-      parameters.setIgnoreHeaderXNaming(setting)
-    }
-
-    openApiStylePathNamingConvention.value.foreach { setting =>
-      parameters.setPathNamingConvention(setting)
-    }
-
-    openApiStyleParameterNamingConvention.value.foreach { setting =>
-      parameters.setParameterNamingConvention(setting)
-    }
-
-    openApiStyleHeaderNamingConvention.value.foreach { setting =>
-      parameters.setHeaderNamingConvention(setting)
-    }
-
-    openApiStylePropertyNamingConvention.value.foreach { setting =>
-      parameters.setParameterNamingConvention(setting)
-    }
+    openApiStylePathNamingConvention.value.foreach(parameters.setPathNamingConvention)
+    openApiStyleParameterNamingConvention.value.foreach(parameters.setParameterNamingConvention)
+    openApiStyleHeaderNamingConvention.value.foreach(parameters.setHeaderNamingConvention)
+    openApiStylePropertyNamingConvention.value.foreach(parameters.setParameterNamingConvention)
 
     parameters
   }

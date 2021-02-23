@@ -6,6 +6,7 @@ import sbt._
 
 trait OpenApiStyleKeys {
 
+  final val openApiStyleConfig = settingKey[Option[File]]("OpenAPI Style Validator configuration file.")
   final val openApiStyleSpec = taskKey[File]("OpenAPI specification file.")
   final val openApiStyleValidate = taskKey[Unit]("Validates OpenAPI specification file: success or failure.")
   final val openApiStyleValidationResult = taskKey[Seq[String]]("Validates OpenAPI specification file: evaluates to a list of detailed error messages.")
