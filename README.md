@@ -27,29 +27,29 @@ Invoke one of the provided tasks:
 > openApiStyleValidationResult
 ```
 
-### Configuration
+## Configuration
 
 You may specify [openapi-style-validator](https://github.com/OpenAPITools/openapi-style-validator) settings either in a configuration file or directly in the sbt build definition using the provided keys.
 
-##### Using a configuration file
+### Using a configuration file
 
 Supported formats include Java properties, [HOCON](https://github.com/lightbend/config/blob/master/HOCON.md) and JSON.
 
 Specify the config file in `build.sbt`:
 ```sbt
-openApiStyleConfig := Some(file(".openapi-style-validator.conf"))
+openApiStyleConfig := Some(file("openapi-style-validator.conf"))
 ```
 
 Specify configurations in the config file:
 ```hocon
 validateNaming = true
-pathNamingConvention = false
+pathNamingConvention = UnderscoreCase
 // etc.
 ```
 
 Keys are the same as in [openapi-style-validator](https://github.com/OpenAPITools/openapi-style-validator).
 
-##### Directly in sbt
+### Directly in sbt
 
 You may also specify configuration settings directly in `build.sbt` via the provided keys:
 ```sbt
@@ -58,7 +58,7 @@ openApiStylePathNamingConvention := Some(NamingConvention.UnderscoreCase)
 // etc.
 ```
 
-# sbt keys
+## sbt keys
 
 | Key | Type | Description |
 | --- | ---- | ----------- |
