@@ -34,12 +34,23 @@ libraryDependencies ++= Seq(
 
 publishMavenStyle := false
 
-bintrayRepository := "sbt-plugins"
-bintrayOrganization := Option("jrouly")
-bintrayPackageLabels := Seq("sbt", "plugin", "oas", "openapi", "openapi-style-validator")
-bintrayVcsUrl := Some("git@github.com:jrouly/sbt-openapi-style-validator.git")
+credentials += Credentials(
+  "Artifactory Realm",
+  "jrouly.jfrog.io",
+  sys.env.getOrElse("ARTIFACTORY_USER", "user"),
+  sys.env.getOrElse("ARTIFACTORY_PASS", "pass")
+)
+
+publishTo := {
+  def resolver(host: String, repo: String) =
+    Resolver.url(repo, url(s"https://$host/artifactory/$repo"))(Resolver.ivyStylePatterns)
+  if (isSnapshot.value) Some(resolver("jrouly.jfrog.io", "ivy-snapshot-local"))
+  else Some(resolver("jrouly.jfrog.io", "ivy-release-local"))
+}
 
 scriptedBufferLog := false
 scriptedLaunchOpts := {
   scriptedLaunchOpts.value ++ Seq("-Xmx1024M", "-server", "-Dplugin.version=" + version.value)
 }
+
+Global / onChangedBuildSource := ReloadOnSourceChanges
