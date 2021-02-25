@@ -41,10 +41,8 @@ credentials += Credentials(
 )
 
 publishTo := {
-  def resolver(host: String, repo: String) = {
-    val url = new URL(s"https://$host/artifactory/$repo")
-    Resolver.url(repo, url)(Resolver.ivyStylePatterns)
-  }
+  def resolver(host: String, repo: String) =
+    Resolver.url(repo, url(s"https://$host/artifactory/$repo"))(Resolver.ivyStylePatterns)
   if (isSnapshot.value) Some(resolver("jrouly.jfrog.io", "ivy-snapshot-local"))
   else Some(resolver("jrouly.jfrog.io", "ivy-release-local"))
 }
