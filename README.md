@@ -1,8 +1,6 @@
 # sbt-openapi-style-validator
 
 [![Scala CI](https://github.com/jrouly/sbt-openapi-style-validator/workflows/Scala%20CI/badge.svg?branch=master)](https://github.com/jrouly/sbt-openapi-style-validator/actions?query=workflow%3A%22Scala+CI%22)
-[![Download](https://api.bintray.com/packages/jrouly/sbt-plugins/sbt-openapi-style-validator/images/download.svg)](https://bintray.com/jrouly/sbt-plugins/sbt-openapi-style-validator/_latestVersion)
-
 
 An sbt plugin to support the [OpenAPI Style Validator](https://github.com/OpenAPITools/openapi-style-validator) project.
 
@@ -11,7 +9,7 @@ An sbt plugin to support the [OpenAPI Style Validator](https://github.com/OpenAP
 Add to your `project/plugins.sbt`:
 
 ```sbt
-resolvers += Resolver.bintrayIvyRepo("jrouly", "sbt-plugins")
+resolvers += Resolver.url("ivy-release-local", url(s"https://jrouly.jfrog.io/artifactory/ivy-release-local"))(Resolver.ivyStylePatterns)
 addSbtPlugin("org.openapitools.openapistylevalidator" % "sbt-openapi-style-validator" % "version")
 ```
 
