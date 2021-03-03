@@ -37,7 +37,8 @@ object OpenApiStylePlugin
     openApiStyleConfig := None,
     openApiStyleValidationResult := openApiStyleValidationResultTask().value,
     openApiStyleValidate := openApiStyleValidateTask().value,
-    openApiStyleValidatorParameters := openApiStyleValidatorParametersTask().value
+    openApiStyleValidatorParameters := openApiStyleValidatorParametersTask().value,
+    Keys.traceLevel in openApiStyleValidate := -1 // Suppress stack traces in style validation.
   )
 
   private lazy val defaultSettings: Seq[Def.Setting[_]] = Seq(
