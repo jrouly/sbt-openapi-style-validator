@@ -32,18 +32,13 @@ lazy val ok = project
     openApiStyleValidateInfoLicense := Some(false),
     openApiStyleValidateInfoDescription := Some(false),
     openApiStyleValidateInfoContact := Some(false),
-
     openApiStyleValidateOperationId := Some(false),
     openApiStyleValidateOperationDescription := Some(false),
     openApiStyleValidateOperationTag := Some(false),
     openApiStyleValidateOperationSummary := Some(false),
-
     openApiStyleValidateModelPropertiesExample := Some(false),
-
     openApiStyleValidateNaming := Some(false),
-
     openApiStyleIgnoreHeaderXNaming := Some(false),
-
     openApiStylePathNamingConvention := None,
     openApiStyleParameterNamingConvention := None,
     openApiStyleHeaderNamingConvention := None,

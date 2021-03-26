@@ -22,9 +22,11 @@ trait OpenApiStyleValidationResultTask extends OpenApiStyleKeys {
     val validator = new OpenApiSpecStyleValidator(openApi)
 
     val errors = ListBuffer.empty[String]
-    validator.validate(parameters).forEach(new Consumer[StyleError] {
-      override def accept(error: StyleError): Unit = errors += error.toString
-    })
+    validator
+      .validate(parameters)
+      .forEach(new Consumer[StyleError] {
+        override def accept(error: StyleError): Unit = errors += error.toString
+      })
     errors.toList
   }
 

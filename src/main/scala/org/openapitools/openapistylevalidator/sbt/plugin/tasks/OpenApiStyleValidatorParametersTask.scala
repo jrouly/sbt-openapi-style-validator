@@ -81,11 +81,15 @@ trait OpenApiStyleValidatorParametersTask extends OpenApiStyleKeys {
     openApiStyleValidateInfoContact.value.foreach(parameters.setValidateInfoContact)
 
     openApiStyleValidateOperationId.value.foreach(parameters.setValidateOperationOperationId)
-    openApiStyleValidateOperationDescription.value.foreach(parameters.setValidateOperationDescription)
+    openApiStyleValidateOperationDescription.value.foreach(
+      parameters.setValidateOperationDescription
+    )
     openApiStyleValidateOperationTag.value.foreach(parameters.setValidateOperationTag)
     openApiStyleValidateOperationSummary.value.foreach(parameters.setValidateOperationSummary)
 
-    openApiStyleValidateModelPropertiesExample.value.foreach(parameters.setValidateModelPropertiesExample)
+    openApiStyleValidateModelPropertiesExample.value.foreach(
+      parameters.setValidateModelPropertiesExample
+    )
 
     openApiStyleValidateNaming.value.foreach(parameters.setValidateNaming)
 

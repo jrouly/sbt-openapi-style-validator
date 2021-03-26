@@ -45,18 +45,13 @@ object OpenApiStylePlugin
     openApiStyleValidateInfoLicense := None,
     openApiStyleValidateInfoDescription := None,
     openApiStyleValidateInfoContact := None,
-
     openApiStyleValidateOperationId := None,
     openApiStyleValidateOperationDescription := None,
     openApiStyleValidateOperationTag := None,
     openApiStyleValidateOperationSummary := None,
-
     openApiStyleValidateModelPropertiesExample := None,
-
     openApiStyleValidateNaming := None,
-
     openApiStyleIgnoreHeaderXNaming := None,
-
     openApiStylePathNamingConvention := None,
     openApiStyleParameterNamingConvention := None,
     openApiStyleHeaderNamingConvention := None,
