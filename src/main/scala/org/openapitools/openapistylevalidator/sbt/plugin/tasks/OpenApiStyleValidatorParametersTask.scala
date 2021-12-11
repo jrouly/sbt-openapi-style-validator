@@ -48,6 +48,14 @@ trait OpenApiStyleValidatorParametersTask extends OpenApiStyleKeys {
         .foreach(parameters.setValidateModelPropertiesExample)
 
       config
+        .getOptionalBoolean("validateModelPropertiesDescription")
+        .foreach(parameters.setValidateModelPropertiesDescription)
+
+      config
+        .getOptionalBoolean("validateModelRequiredProperties")
+        .foreach(parameters.setValidateModelRequiredProperties)
+
+      config
         .getOptionalBoolean("validateNaming")
         .foreach(parameters.setValidateNaming)
 
