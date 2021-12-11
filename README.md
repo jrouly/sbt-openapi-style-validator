@@ -9,8 +9,7 @@ An sbt plugin to support the [OpenAPI Style Validator](https://github.com/OpenAP
 Add to your `project/plugins.sbt`:
 
 ```sbt
-resolvers += Resolver.url("ivy-release-local", url(s"https://jrouly.jfrog.io/artifactory/ivy-release-local"))(Resolver.ivyStylePatterns)
-addSbtPlugin("org.openapitools.openapistylevalidator" % "sbt-openapi-style-validator" % "version")
+addSbtPlugin("net.rouly" % "sbt-openapi-style-validator" % "version")
 ```
 
 Update your `build.sbt`:
@@ -78,6 +77,8 @@ The following configuration keys are supported:
 | `openApiStyleValidateOperationTag` | `SettingKey[Option[Boolean]]` | Ensures that there is a tag for each operation. |
 | `openApiStyleValidateOperationSummary` | `SettingKey[Option[Boolean]]` | Ensures that there is a summary for each operation. |
 | `openApiStyleValidateModelPropertiesExample` | `SettingKey[Option[Boolean]]` | Ensures that the properties of the Schemas have an example value defined. |
+| `openApiStyleValidateModelPropertiesDescription` | `SettingKey[Option[Boolean]]` | Ensures that the properties of the Schemas have a description value defined. |
+| `openApiStyleValidateModelRequiredProperties` | `SettingKey[Option[Boolean]]` | Ensures that all required properties of the Schemas are listed among their properties. |
 | `openApiStyleValidateNaming` | `SettingKey[Option[Boolean]]` | Ensures the names follow a given naming convention. |
 | `openApiStyleIgnoreHeaderXNaming` | `SettingKey[Option[Boolean]]` | Exclude from validation header parameters starting with `x-`. |
 | `openApiStylePathNamingConvention` | `SettingKey[Option[NamingConvention]]` | Naming convention for paths. |

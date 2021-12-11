@@ -48,6 +48,14 @@ trait OpenApiStyleValidatorParametersTask extends OpenApiStyleKeys {
         .foreach(parameters.setValidateModelPropertiesExample)
 
       config
+        .getOptionalBoolean("validateModelPropertiesDescription")
+        .foreach(parameters.setValidateModelPropertiesDescription)
+
+      config
+        .getOptionalBoolean("validateModelRequiredProperties")
+        .foreach(parameters.setValidateModelRequiredProperties)
+
+      config
         .getOptionalBoolean("validateNaming")
         .foreach(parameters.setValidateNaming)
 
@@ -89,6 +97,12 @@ trait OpenApiStyleValidatorParametersTask extends OpenApiStyleKeys {
 
     openApiStyleValidateModelPropertiesExample.value.foreach(
       parameters.setValidateModelPropertiesExample
+    )
+    openApiStyleValidateModelPropertiesDescription.value.foreach(
+      parameters.setValidateModelPropertiesDescription
+    )
+    openApiStyleValidateModelRequiredProperties.value.foreach(
+      parameters.setValidateModelRequiredProperties
     )
 
     openApiStyleValidateNaming.value.foreach(parameters.setValidateNaming)
