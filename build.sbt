@@ -1,5 +1,5 @@
 name := "sbt-openapi-style-validator"
-organization := "org.openapitools.openapistylevalidator"
+organization := "net.rouly"
 description := "Supports functionality from openapi-style-validator as part of an sbt build."
 
 scriptedBufferLog := false
