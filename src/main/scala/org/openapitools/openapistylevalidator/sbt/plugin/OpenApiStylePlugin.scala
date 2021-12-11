@@ -50,6 +50,8 @@ object OpenApiStylePlugin
     openApiStyleValidateOperationTag := None,
     openApiStyleValidateOperationSummary := None,
     openApiStyleValidateModelPropertiesExample := None,
+    openApiStyleValidateModelPropertiesDescription := None,
+    openApiStyleValidateModelRequiredProperties := None,
     openApiStyleValidateNaming := None,
     openApiStyleIgnoreHeaderXNaming := None,
     openApiStylePathNamingConvention := None,

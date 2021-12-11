@@ -90,6 +90,12 @@ trait OpenApiStyleValidatorParametersTask extends OpenApiStyleKeys {
     openApiStyleValidateModelPropertiesExample.value.foreach(
       parameters.setValidateModelPropertiesExample
     )
+    openApiStyleValidateModelPropertiesDescription.value.foreach(
+      parameters.setValidateModelPropertiesDescription
+    )
+    openApiStyleValidateModelRequiredProperties.value.foreach(
+      parameters.setValidateModelRequiredProperties
+    )
 
     openApiStyleValidateNaming.value.foreach(parameters.setValidateNaming)
 

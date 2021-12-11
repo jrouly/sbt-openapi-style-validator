@@ -10,7 +10,7 @@ Global / onChangedBuildSource := ReloadOnSourceChanges
 enablePlugins(SbtPlugin)
 
 libraryDependencies ++= Seq(
-  "org.openapitools.openapistylevalidator" % "openapi-style-validator-lib" % "1.5",
+  "org.openapitools.openapistylevalidator" % "openapi-style-validator-lib" % "1.7",
   "io.swagger.parser.v3" % "swagger-parser" % "2.0.24",
   "org.openapitools.empoa" % "empoa-swagger-core" % "2.0.0",
   "com.typesafe" % "config" % "1.4.1"

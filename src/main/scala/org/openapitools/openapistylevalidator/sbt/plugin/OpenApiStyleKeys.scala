@@ -38,6 +38,12 @@ trait OpenApiStyleKeys {
   final val openApiStyleValidateModelPropertiesExample = settingKey[Option[Boolean]](
     "Ensures that the properties of the Schemas have an example value defined."
   )
+  final val openApiStyleValidateModelPropertiesDescription = settingKey[Option[Boolean]](
+    "Ensures that the properties of the Schemas have a description value defined."
+  )
+  final val openApiStyleValidateModelRequiredProperties = settingKey[Option[Boolean]](
+    "Ensures that all required properties of the Schemas are listed among their properties."
+  )
 
   final val openApiStyleValidateNaming =
     settingKey[Option[Boolean]]("Ensures the names follow a given naming convention.")
